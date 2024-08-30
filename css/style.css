@@ -1,0 +1,520 @@
+/*!
+ * Rust-Server-Website-Template v2.5 (https://github.com/Mo45/Rust-Server-Website-Template/releases)
+ * Copyright 2017-2024 Kirill Krasin
+ * Licensed under MIT (https://github.com/Mo45/Rust-Server-Website-Template/blob/master/LICENSE)
+ */
+:root {
+    --color-dark: #06000a;
+    --color-lt-dark: #151413;
+    --color-mid-dark: #0b0b0a;
+    --color-rust: #cd412b;
+    --color-mute: #948c87;
+    --color-online: #198754;
+    --color-offline: #dc3545;
+    --color-lt-blue: #62a7e3;
+    --color-lt-green: #8bc53f;
+}
+::-webkit-scrollbar-track{
+    background-color: rgba(6, 0, 10, 1);
+}
+::-webkit-scrollbar{
+    width: 3px;
+    background-color: rgba(6, 0, 10, 1);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--color-rust);
+}
+body {
+    position: relative;
+    background-color: var(--color-dark);
+    font-size: 16px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    min-width: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
+    color:#e6e6e8;
+    font: normal 1em 'Roboto Slab', sans-serif;
+}
+nav.navbar.bg-dark {
+    padding: 1rem;
+    color: #fff;
+    background-color:rgba(23,23,23,0)!important;
+}
+img#rust-marque{
+    max-height: 48px;
+    transform: scale(1);
+    transition: transform .2s ease;
+}
+img#rust-marque:hover{
+    transform: scale(1.1);
+}
+.navbar-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+.modal-content {
+    background: radial-gradient(circle at top left, rgba(74, 81, 92, 0.4) 0%, rgba(75, 81, 92, 0) 60%), #25282e;
+    border-radius: 0;
+    border-top: 1px solid;
+    border-image-slice: 1;
+    border-image: linear-gradient(to left, #8f2527 1%, #cd412b 50%, #cd412b 100%) 
+              100% 0 100% 0/2px 0 2px 0 stretch;
+}
+.face {
+    min-height: 100vh;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.face-body {
+    align-items: center;
+    display: flex;
+    background: linear-gradient(rgba(6, 0, 10, 0.5), rgba(6, 0, 10, 0.75), var(--color-dark));
+    z-index: 1;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 3rem 1.5rem;
+}
+.face.face-body > .container {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+.face-title.one {
+    font-size: 3rem;
+}
+.face-subtitle {
+    font-size: 1rem;
+}
+.face.face-subtitle {
+    color: #c5bbb4;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.25;
+}
+.section {
+    padding: 3rem 1.5rem;
+    display: block;
+}
+.servers {
+    background-color: transparent;
+    position: relative;
+    z-index: 100;
+    border-bottom: 1px solid rgba(230,230,232,.1);
+}
+.section > h1 {
+    color:var(--color-rust);
+    margin-bottom: 1em;
+}
+.tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.tabs .spoon {
+    margin-right: 1rem;
+    margin-bottom: 2em;
+}
+.spoon.is-medium {
+    font-size: 1.6rem;
+    padding: .5rem 1rem;
+}
+.spoon.is-primary {
+    background: var(--color-rust);
+    color: #fff;
+}
+.spoon {
+    padding: .3rem .7rem;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    display: inline-flex;
+    border: 0;
+    cursor: default;
+    text-transform: uppercase;
+    transition: all .15s ease;
+}
+.nav-tabs .nav-link,.btn,.btn-lg {border-radius: 0!important;}
+div.one-server > h2 {
+    margin-top: 1em;
+    font-size: 1.2rem;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgba(230,230,232,.1);
+}
+img.server-header {
+    outline: 1px solid rgba(48,0,50,.1);
+}
+div.Online {
+    border-bottom: 3px solid #738D45;
+}
+div.Offline {
+    border-bottom: 3px solid var(--color-rust);
+}
+div.Offline > img.server-header {
+    opacity:.3;
+}
+@keyframes pulse{50%{opacity:.5}}
+.animate-pulse {
+    animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite
+}
+@keyframes spin{to{transform:rotate(1turn)}}
+.animate-spin {
+    animation:spin 1s linear infinite
+}
+img#desc-icon{
+    transform: scale(1);
+    transition: transform .2s ease;
+}
+img#desc-icon:hover{
+    transform: scale(1.1);
+}
+.progress {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.players-bar {
+    background-color:#738D45;
+}
+div.one-server > p {
+    border-bottom: 1px solid rgba(230,230,232,.1);
+    padding-bottom: 10px;
+    color: var(--color-mute);
+}
+div.members {
+    font-size:3rem;
+    border-bottom: 1px solid rgba(230,230,232,.1);
+    padding-bottom: 3rem;
+}
+div.members > span {
+    font-size:1rem;
+    display: block;
+}
+span.discord {
+    font-size:1rem;
+    display: block;
+}
+#discord-total {
+    color: #fff;
+}
+div.members#online {
+    color: var(--color-lt-blue);
+}
+div.members#ingame {
+    color: var(--color-lt-green);
+}
+div.members#discord {
+    color: var(--color-lt-green);
+    padding-top:10px;
+}
+section.community > div.row {
+    margin-bottom: 3rem;
+}
+div.discord-invite {
+    margin-top: 3rem;
+    border-bottom: 1px solid rgba(230,230,232,.1);
+    padding-bottom: 3rem;
+}
+div.store {
+    padding-top:6rem;
+}
+div.store > h3 {
+    color: var(--color-mute);
+}
+section.rules,section.store,section.staff,section.community,section.social {
+    border-bottom: 1px solid rgba(230,230,232,.1);
+}
+.description {
+    padding: 20px;
+    background-color: var(--color-mid-dark);
+}
+.description-text > h2 {
+    font-size: 1.1rem;
+    color: var(--color-mute);
+}
+.description-text > h3 {
+    font-size: .9rem;
+    color: var(--color-mute);
+}
+section.footer {
+    padding-top: 2rem;
+    padding-bottom:3rem;
+    background-color:var(--color-lt-dark);
+}
+section.footer > div.container > span > a {
+    color: #e6e6e8;
+    text-decoration:underline;
+}
+section.footer > div.container > span > a:hover {
+    text-decoration:none;
+}
+.srv {
+    margin-bottom: 20px;
+}
+img.rounded-circle.staff {
+    max-width:150px;
+    border: 2px solid var(--color-rust);
+}
+img.rounded-circle.discord-user {
+    max-width:50px;
+    border: 2px solid var(--color-rust);
+}
+h2.discord {
+    color:#7289DA;
+    font-size: 1.2rem;
+}
+p.staff-name {
+    padding-top:1rem;
+    font-size:1.2rem;
+}
+p.staff-role {
+    margin-top:-1rem;
+    font-size:.8rem;
+    color:var(--color-rust);
+}
+.fullvideo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+.fullvideo video {
+    position: absolute;
+    height: 100%;
+    width: 177.77777778vh;
+    min-width: 100%;
+    min-height: 56.25vw;
+    object-fit: cover;
+}
+img, embed, object, audio, video {
+    max-width: 100%;
+}
+.modal-content#contact {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    pointer-events: auto;
+    background-color: var(--color-rust);
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+.modal-header#contact {
+    border-bottom: 1px solid rgba(230,230,232,.1);
+}
+.modal-footer#contact {
+    border-top: 1px solid rgba(230,230,232,.1);
+}
+/* ------------------------------*/
+/* ------------------------------*/
+/* ------- PRICING TABLE ------- */
+/* ------------------------------*/
+/* ------------------------------*/
+.panel {
+  background-color: rgba(205, 65, 43, .5);/* -- BACKGROUND COLOR FOR PRICING TABLE -- */
+  border-radius: 0;
+  padding: 15px 25px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+.pricing-table {
+  box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.08), 0px 20px 31px 3px rgba(0, 0, 0, 0.09), 0px 8px 20px 7px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 767.98px) {
+  .face-title.one {
+    font-size: 2rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  div.description-icon {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(230, 230, 232, .1);
+    order: 6;
+  }
+  .pricing-price {
+    font-size: 1.5rem!important;
+  }
+}
+@media (min-width: 900px) {
+  .pricing-table {
+    flex-direction: row;
+  }
+}
+
+.pricing-table * {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.pricing-plan {
+  border-bottom: 1px solid #e1f1ff;
+  padding: 25px 5px;
+}
+
+.pricing-plan:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 900px) {
+  .pricing-plan {
+    border-bottom: none;
+    border-right: 1px solid #e1f1ff;
+    flex-basis: 100%;
+    padding: 25px 5px;
+  }
+
+  .pricing-plan:last-child {
+    border-right: none;
+  }
+}
+
+.pricing-img {
+  margin-bottom: 25px;
+  max-width: 100%;
+}
+.section > h1, .section > h2 {
+    color: var(--color-rust);
+    margin-bottom: 1em;
+}
+.pricing-header {
+  font-size: 26px;/* -- FONT SIZE FOR EACH PRICING PLAN HEADER -- */
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.pricing-features {
+  color: rgba(255,255,255,.8);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 50px 0 25px -40px;
+  list-style-type:none;
+}
+
+.pricing-features-item {
+  border-top: 1px solid #e1f1ff;
+  font-size: 11px;
+  line-height: 1.5;
+  padding: 15px 0;
+}
+
+.pricing-features-item:last-child {
+  border-bottom: 1px solid #e1f1ff;
+}
+
+.pricing-price {
+  color: #fff;
+  display: block;
+  font-size: 36px;/* -- FONT SIZE FOR EACH PRICING PLAN PRICE -- */
+  font-weight: 700;
+}
+.pricing-price > sup.small {
+    font-size: 20px;
+}
+.pricing-price > sub.small {
+    font-size: 16px;
+    text-transform: none;
+    margin-left: -5px;
+}
+.pricing-button {
+  border: 1px solid #9dd1ff;
+  border-radius: 10px;
+  color: #348EFE;
+  display: inline-block;
+  margin: 25px 0;
+  padding: 15px 35px;
+  text-decoration: none;
+  transition: all 150ms ease-in-out;
+}
+
+.pricing-button:hover,
+.pricing-button:focus {
+  background-color: #e1f1ff;
+}
+
+.pricing-button.is-featured {
+  background-color: #48aaff;
+  color: #fff;
+}
+
+.pricing-button.is-featured:hover,
+.pricing-button.is-featured:active {
+  background-color: #269aff;
+}
+a.nav-link{border-bottom: 3px solid var(--color-dark);}
+a.nav-item.nav-link {
+    color: var(--color-rust);
+}
+a.nav-link:hover {
+    color: #fff;
+    border-bottom: 3px solid var(--color-rust);
+}
+.nav-tabs .nav-link:hover {
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+a.disabled {
+    pointer-events: none;
+    color: #ccc;
+}
+h3.faq-question {
+  text-align: left;
+  border-bottom: 1px solid var(--color-rust);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+p.text-left > a {
+  text-decoration: underline;
+  color: #fff;
+}
+p.text-left > a:hover {
+  color: var(--color-rust);
+  text-decoration: none;
+}
+#footer {
+  opacity: .5;
+  color: #fff;
+}
+#footer > a {
+    margin-left: 3px;
+  text-decoration: none;
+  color: #fff;
+  transition: opacity .2s ease;
+}
+#footer > a:hover {
+  text-decoration: none;
+  opacity: 1;
+  color: #fff;
+  transition: opacity .2s ease;
+}
+.face-title.one {
+    font-size: 3rem;
+    font-weight: 800;
+}
+.navbar-dark .navbar-brand {
+    color: #fff;
+    font-weight: 800;
+}
